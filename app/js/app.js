@@ -6,6 +6,16 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
       {
         templateUrl: 'templates/NewEvent.html',
         controller: 'EditEventController'
-      }
-    )
+      });
+    $routeProvider.when('/event',
+      {
+        templateUrl: 'templates/EventList.html',
+        controller: 'EventListController'
+      });
+      $routeProvider.when('/event/:eventId',
+      {
+        templateUrl: 'templates/EventDetails.html',
+        controller: 'EventController'
+    });
+
   });

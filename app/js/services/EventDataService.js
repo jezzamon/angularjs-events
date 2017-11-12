@@ -1,18 +1,6 @@
 eventsApp.factory('eventDataService', ['$resource', function($resource) {
   var resource = $resource('/data/event/:id', {id: '@id'});
 
-  //resource with custom method (ie. PUT, or passing params for logins etc)
-  // var resource = $resource(
-  //   '/data/event/:id', 
-  //   {id: '@id'},
-  //   { "Update": {
-  //       method: 'PUT', 
-  //       isArray: true, 
-  //       params: { secret: 'foo'}
-  //     } 
-  //   }
-  // );
-  
   return {
     getEvent: function() {
       return resource.get({id:1});
@@ -20,6 +8,9 @@ eventsApp.factory('eventDataService', ['$resource', function($resource) {
     save: function(event) {
       event.id = 999;
       return resource.save(event);
+    },
+    getAllEvents: function() {
+      return resource.query();
     }
   }
 }]);
@@ -32,3 +23,15 @@ eventsApp.factory('eventDataService', ['$resource', function($resource) {
 //     }
 //   }
 // })
+
+  //resource with custom method (ie. PUT, or passing params for logins etc)
+  // var resource = $resource(
+  //   '/data/event/:id', 
+  //   {id: '@id'},
+  //   { "Update": {
+  //       method: 'PUT', 
+  //       isArray: true, 
+  //       params: { secret: 'foo'}
+  //     } 
+  //   }
+  // );
