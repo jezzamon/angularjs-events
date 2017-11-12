@@ -5,9 +5,10 @@ eventsApp.controller('EventController', ['$scope', 'eventDataService', '$log', f
 
   $scope.sortOrder = 'name';
 
-
-  // $resource return promise like object that contains a $promise method
+  //if passing id
+  // eventDataService.getEvent({{id: $routeParams.id}}) 
   eventDataService.getEvent()
+  // $resource return promise like object that contains a $promise method
     .$promise
       .then(function(event) {
         $scope.event = event; console.log(event); 
@@ -15,12 +16,7 @@ eventsApp.controller('EventController', ['$scope', 'eventDataService', '$log', f
       .catch(function(response) { console.log(response)
       });
 
-  // $http
-  // eventData.getEvent()
-  //     .success(function(event) { $scope.event = event;})
-  //     .error(function(data, status, headers, config) {
-  //         $log.warn(data, status, headers(), config)
-  //     });
+ 
 
   $scope.upVoteSession = function (session) {
       session.upVoteCount++;
@@ -35,3 +31,10 @@ eventsApp.controller('EventController', ['$scope', 'eventDataService', '$log', f
     $anchorScroll();
   }
 }]);
+
+ // $http eg
+  // eventData.getEvent()
+  //     .success(function(event) { $scope.event = event;})
+  //     .error(function(data, status, headers, config) {
+  //         $log.warn(data, status, headers(), config)
+  //     });
