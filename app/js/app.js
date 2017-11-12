@@ -14,6 +14,7 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
       });
     $routeProvider.when('/event/:eventId',
       {
+        foo: 'bar', //set custom property
         templateUrl: 'templates/EventDetails.html',
         controller: 'EventController'
       });

@@ -1,16 +1,30 @@
 'use strict';
 
 eventsApp.controller('EventController', [
-  '$scope', 
-  'eventDataService', 
-  '$routeParams', 
-  '$log', 
-  function ($scope, eventDataService, $routeParams, $log ) {
+  '$scope',
+  'eventDataService',
+  '$routeParams',
+  '$log',
+  '$route',
+  function ($scope, eventDataService, $routeParams, $log, $route ) {
   var ctrl = this;
 
   $scope.sortOrder = 'name';
   
   $scope.event = eventDataService.getEvent($routeParams.eventId);
+  
+  //access custom property set on route
+  console.log($route.current.foo);
+
+  //access url query string (http://localhost/?foo=test)
+  console.log($route.current.params.foo);
+
+  //access routeParams :eventId
+  console.log($route.current.params.eventId);
+
+  $scope.reload = function () {
+    $route.reload();
+  };
 
   $scope.upVoteSession = function (session) {
       session.upVoteCount++;
