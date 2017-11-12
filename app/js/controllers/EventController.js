@@ -11,7 +11,7 @@ eventsApp.controller('EventController', [
 
   $scope.sortOrder = 'name';
   
-  $scope.event = eventDataService.getEvent($routeParams.eventId);
+  $scope.event = $route.current.locals.event;
   
   //access custom property set on route
   console.log($route.current.foo);
