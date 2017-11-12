@@ -6,7 +6,7 @@ eventsApp.controller('EventController', ['$scope', 'eventDataService', '$log', f
   $scope.sortOrder = 'name';
 
   //if passing id
-  // eventDataService.getEvent({{id: $routeParams.id}}) 
+  // eventDataService.getEvent({{id: $routeParams.id}})
   eventDataService.getEvent()
   // $resource return promise like object that contains a $promise method
     .$promise
