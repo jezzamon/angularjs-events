@@ -1,22 +1,16 @@
 'use strict';
 
-eventsApp.controller('EventController', ['$scope', 'eventDataService', '$log', function ($scope, eventDataService, $log ) {
+eventsApp.controller('EventController', [
+  '$scope', 
+  'eventDataService', 
+  '$routeParams', 
+  '$log', 
+  function ($scope, eventDataService, $routeParams, $log ) {
   var ctrl = this;
 
   $scope.sortOrder = 'name';
-
-  //if passing id
-  // eventDataService.getEvent({{id: $routeParams.id}})
-  eventDataService.getEvent()
-  // $resource return promise like object that contains a $promise method
-    .$promise
-      .then(function(event) {
-        $scope.event = event; console.log(event); 
-      })
-      .catch(function(response) { console.log(response)
-      });
-
- 
+  
+  $scope.event = eventDataService.getEvent($routeParams.eventId);
 
   $scope.upVoteSession = function (session) {
       session.upVoteCount++;
@@ -38,3 +32,16 @@ eventsApp.controller('EventController', ['$scope', 'eventDataService', '$log', f
   //     .error(function(data, status, headers, config) {
   //         $log.warn(data, status, headers(), config)
   //     });
+
+//if passing id and want to do something first inside the promise
+// $resource return promise like object that contains a $promise method
+  
+// eventDataService.getEvent($routeParams.eventId)
+  //   .$promise
+  //     .then(function(event) {
+  //       $scope.event = event; console.log(event); 
+  //     })
+  //     .catch(function(response) { console.log(response)
+  //     });
+
+ 
