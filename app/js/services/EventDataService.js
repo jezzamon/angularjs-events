@@ -1,4 +1,4 @@
-eventsApp.factory('eventDataService', function($resource) {
+eventsApp.factory('eventDataService', ['$resource', function($resource) {
   var resource = $resource('/data/event/:id', {id: '@id'});
 
   //resource with custom method (ie. PUT, or passing params for logins etc)
@@ -22,7 +22,7 @@ eventsApp.factory('eventDataService', function($resource) {
       return resource.save(event);
     }
   }
-})
+}]);
 
 // $http
 // eventsApp.factory('eventData', function($http) {

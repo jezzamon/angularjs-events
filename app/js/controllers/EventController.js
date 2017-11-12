@@ -1,6 +1,6 @@
 'use strict';
 
-eventsApp.controller('EventController', function ($scope, eventDataService, $log, $anchorScroll ) {
+eventsApp.controller('EventController', ['$scope', 'eventDataService', '$log', function ($scope, eventDataService, $log ) {
   var ctrl = this;
 
   $scope.sortOrder = 'name';
@@ -34,4 +34,4 @@ eventsApp.controller('EventController', function ($scope, eventDataService, $log
   $scope.scrollToSession = function() {
     $anchorScroll();
   }
-});
+}]);
