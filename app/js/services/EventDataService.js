@@ -1,4 +1,7 @@
-eventsApp.factory('eventDataService', ['$resource', function($resource) {
+eventsApp.factory('eventDataService', [
+  '$resource', 
+  function($resource) {
+  
   var resource = $resource('/data/event/:id', {id: '@id'});
 
   return {

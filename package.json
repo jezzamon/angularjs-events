@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node scripts/web-server.js"
+    "start": "server.sh"
   },
   "author": "Joe Eames & Jim Cooper",
   "license": "ISC",
