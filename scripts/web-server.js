@@ -16,4 +16,4 @@ app.post('/data/event/:id', events.save);
 app.get('*', function(req, res) { res.sendFile(rootPath + '/app/index.html'); });
 
 app.listen(8090);
-console.log('listening to port 8000');
+console.log('listening to port 8090');
